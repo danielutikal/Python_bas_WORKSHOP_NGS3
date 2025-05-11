@@ -5,15 +5,21 @@
   <title>Guess The Number</title>
 </head>
 <body>
-<h1>Is it {guess}?</h1>
+<h1>Is it {{ guess }}?</h1>
+
+{% if attempts >= 10 %}
+  <p><strong>Don't cheat !!</strong></p>
+{% endif %}
+
 <form action="" method="POST">
     <input type="submit" name="user_answer" value="too big">
     <input type="submit" name="user_answer" value="too small">
     <input type="submit" name="user_answer" value="you win">
     <!-- <input type="submit" name="user_answer" value="you won"> -->
-    <input type="hidden" name="min" value="{min}">
-    <input type="hidden" name="max" value="{max}">
-    <input type="hidden" name="guess" value="{guess}">
+    <input type="hidden" name="min" value="{{ min }}">
+    <input type="hidden" name="max" value="{{ max }}">
+    <input type="hidden" name="guess" value="{{ guess }}">
+    <input type="hidden" name="attempts" value="{{ attempts }}">
 </form>
 </body>
 </html>
